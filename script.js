@@ -28,10 +28,10 @@ function animate() {
     // Clear the canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Draw multiple sine waves with different parameters and lighter gray color
-    drawSineWave(50, 0.02, phaseShift1, canvas.height * 0.5, '#d3d3d3', 0.005); // Lighter gray wave 1
-    drawSineWave(30, 0.03, phaseShift2, canvas.height * 0.6, '#c0c0c0', 0.005); // Slightly darker lighter gray wave 2
-    drawSineWave(70, 0.015, phaseShift3, canvas.height * 0.4, '#b0b0b0', 0.005); // Slightly darker gray wave 3
+    // Draw multiple sine waves with different parameters and darker gold color
+    drawSineWave(50, 0.02, phaseShift1, canvas.height * 0.5, '#C68600', 0.005); // Darker gold wave 1
+    drawSineWave(30, 0.03, phaseShift2, canvas.height * 0.6, '#B86A00', 0.005); // Darker gold wave 2
+    drawSineWave(70, 0.015, phaseShift3, canvas.height * 0.4, '#D8A700', 0.005); // Lighter dark gold wave 3
 
     // Slow down the phase shifts to make waves move slower
     phaseShift1 += 0.005; // Slower speed for wave 1
