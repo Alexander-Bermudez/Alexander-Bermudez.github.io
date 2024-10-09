@@ -5,6 +5,16 @@ body {
     color: #ffffff;
 }
 
+canvas {
+    display: block; /* Prevent scrollbars */
+    position: fixed; /* Keep canvas fixed as background */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Full width of the viewport */
+    height: 100vh; /* Full height of the viewport */
+    z-index: -1; /* Send it behind other content */
+}
+
 h2, h3, h4, h5, h6 {
     color: #FFA000; /* White color for headings */
 }
@@ -179,7 +189,7 @@ footer {
 /* Typing keyframes */
 @keyframes typing {
     from { width: 0; }
-    to { width: 90%; }
+    to { width: 80%; }
 }
 
 /* Blinking cursor keyframes */
@@ -187,3 +197,4 @@ footer {
     from, to { border-color: transparent; }
     50% { border-color: white; } /* Blink the border color */
 }
+
