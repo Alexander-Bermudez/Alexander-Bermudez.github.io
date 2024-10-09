@@ -25,6 +25,7 @@ h1{color: #ffffff;}
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: blink-caret 1s step-end infinite 3s;
 }
 
 h2{font-size: 2em;}
@@ -176,7 +177,9 @@ footer {
     overflow: hidden; /* Hide the overflow to create typing effect */
     border-right: 0.15em solid #ffffff; /* Temporary cursor */
     padding-right: 5px; /* Ensure a small gap between text and cursor */
-    animation:typing 3.5s steps(30, end) 3s forwards, blink-caret 0.75s step-end infinite;
+    visibility: hidden; /* Text is hidden initially */
+    animation: typing 4s steps(30, end) 3s forwards, blink-caret 0.75s step-end infinite 3s;
+    width: 0; /* Initially 0 to simulate typing effect */
 }
 
 /* Blinking cursor */
@@ -187,7 +190,7 @@ footer {
 
 /* Typing keyframes */
 @keyframes typing {
-    from { max-width: 0; }
+    from { max-width: 0; visibility: visible; }
     to { max-width: 100%; }
 }
 
