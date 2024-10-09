@@ -8,6 +8,6 @@ document.getElementById('fireworks-button').onclick = function(event) {
 
     // Scroll to the target after 3 seconds
     setTimeout(function() {
-        document.getElementById('target').scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
     }, 3000); // 3000 milliseconds = 3 seconds
 };
