@@ -47,10 +47,10 @@ function animate() {
     drawSineWave(30, 0.03, phaseShift2, canvas.height * 0.6, '#B86A00', 0.005); // Darker gold wave 2
     drawSineWave(70, 0.015, phaseShift3, canvas.height * 0.4, '#D8A700', 0.005); // Lighter dark gold wave 3
 
-    // Increment the phase shifts to animate the waves
-    phaseShift1 += 0.02;
-    phaseShift2 += 0.015;
-    phaseShift3 += 0.01;
+    // Slow down the phase shifts to make waves move slower
+    phaseShift1 += 0.002; // Much slower speed for wave 1
+    phaseShift2 += 0.001; // Even slower speed for wave 2
+    phaseShift3 += 0.0015; // Slower speed for wave 3
 
     // Repeat the animation
     requestAnimationFrame(animate);
