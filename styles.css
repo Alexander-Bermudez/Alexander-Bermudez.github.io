@@ -1,9 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     font-family: 'Space Mono', monospace; /* Apply the robotic font to the body */
     line-height: 1.6;
@@ -13,6 +7,27 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     color: #ffffff; /* White color for headings */
+}
+
+a {
+    position: relative; /* Position relative to place the pseudo-element */
+    text-decoration: none; /* Remove default underline */
+}
+
+a:after {
+    content: ''; /* Create an empty pseudo-element */
+    position: absolute; /* Position it absolutely */
+    width: 0; /* Start with no width */
+    height: 2px; /* Set the height of the underline */
+    background-color: #FFC107; /* Underline color */
+    bottom: 0; /* Position it at the bottom of the link */
+    left: 50%; /* Center it horizontally */
+    transition: width 0.3s ease, left 0.3s ease; /* Animate width and left position */
+}
+
+a:hover::after {
+    width: 100%; /* Expand width to full on hover */
+    left: 0; /* Move left to 0 to start from the left edge */
 }
 
 header {
@@ -73,7 +88,6 @@ footer {
     text-align: center;
     padding: 10px;
     width: 100%;
-    bottom: 0;
 }
 
 .contact-button {
