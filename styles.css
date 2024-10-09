@@ -5,13 +5,19 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Orbitron', sans-serif; /* Apply the robotic font to the body */
     line-height: 1.6;
+    background-color: #121212;
+    color: #ffffff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #ffffff; /* White color for headings */
 }
 
 header {
-    background: #333;
-    color: #fff;
+    background: #fff;
+    color: black;
     padding: 10px 0;
     text-align: center;
 }
@@ -27,7 +33,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #fff;
+    color: black;
     text-decoration: none;
 }
 
@@ -44,11 +50,16 @@ nav ul li a {
 
 .cta {
     display: inline-block;
-    background: #333;
-    color: #fff;
+    background-color: #ffffff;
+    color: #000000;
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
+}
+
+.cta:hover {
+    background-color: #f0f0f0;
+    color: #000000;
 }
 
 .about, .projects, .contact {
@@ -66,24 +77,15 @@ footer {
     bottom: 0;
 }
 
-form input, form textarea {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-}
-
 .contact-button {
-    background-color: #006400;
+    display: inline-block;
+    background-color: #FFC107;
     color: #ffffff;
     padding: 10px 20px;
-    border: none;
-    border-radius: 15px;
-    font-size: 16px; 
-    cursor: pointer; 
-    transition: background-color 0.3s ease;
+    text-decoration: none;
+    border-radius: 5px;
 }
 
 .contact-button:hover {
-    background-color: #004b23; /* Slightly darker green on hover */
+    background-color: #FFA000; /* Slightly darker green on hover */
 }
