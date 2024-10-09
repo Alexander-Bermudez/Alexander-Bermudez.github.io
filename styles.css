@@ -9,12 +9,12 @@ h1, h2, h3, h4, h5, h6 {
     color: #ffffff; /* White color for headings */
 }
 
-a {
+.animated-link {
     position: relative; /* Position relative to place the pseudo-element */
     text-decoration: none; /* Remove default underline */
 }
 
-a:after {
+.animated-link:after {
     content: ''; /* Create an empty pseudo-element */
     position: absolute; /* Position it absolutely */
     width: 0; /* Start with no width */
@@ -25,7 +25,11 @@ a:after {
     transition: width 0.3s ease, left 0.3s ease; /* Animate width and left position */
 }
 
-a:hover::after {
+.animated-link .black:after {
+    background-color: black !important;
+}
+
+.animated-link:hover::after {
     width: 100%; /* Expand width to full on hover */
     left: 0; /* Move left to 0 to start from the left edge */
 }
