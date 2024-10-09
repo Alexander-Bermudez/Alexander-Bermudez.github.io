@@ -122,29 +122,12 @@ footer {
     border-radius: 5px;
     border: none;
     margin: 1rem;
-    overflow: hidden; /* Hide overflow for the wave effect */
     animation: gradientAnimation 3s infinite alternate; /* Gradient animation */
-    transition: background 0.5s;
+    transition: background 0.3s; /* Smooth transition for background change */
 }
 
 .contact-button:hover {
     background: linear-gradient(45deg, #CC8400, #FFCA00);
-}
-
-.contact-button::before {
-    content: ''; /* Create an empty pseudo-element */
-    position: absolute; /* Position it absolutely */
-    top: 0; /* Align to the top */
-    left: -100%; /* Start outside the left */
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    background-color: rgba(0, 0, 0, 0.3); /* Dark overlay for wave */
-    transform: translateY(-100%); /* Start above the button */
-    transition: left 2s ease; /* Animate the wave movement */
-}
-
-.contact-button:hover::before {
-    left: 0; /* Move to the left edge on hover */
 }
 
 .ctaContainer{
