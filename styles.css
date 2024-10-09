@@ -98,7 +98,7 @@ footer {
 .contact-button {
     width: 150px;
     display: inline-block;
-    background-color: #FFC107;
+    background-color: #FFA000;
     color: #ffffff;
     padding: 10px 20px;
     text-decoration: none;
@@ -109,7 +109,7 @@ footer {
 }
 
 .contact-button:hover {
-    background-color: #FFA000; /* Slightly darker green on hover */
+    background-color: #FF8F00; /* Slightly darker green on hover */
 }
 
 .contact-button::before {
