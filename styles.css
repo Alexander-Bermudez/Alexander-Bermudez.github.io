@@ -131,10 +131,9 @@ footer {
 .ctaContainer{
     display: flex;
     justify-content: center;
-    width: 100%;
     margin: 2rem 4rem;
 }
 
 .text-container{
-    margin-block: 6rem;
+    margin: 2rem 6rem;
 }
