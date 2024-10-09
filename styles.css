@@ -22,7 +22,9 @@ h2, h3, h4, h5, h6 {
 h1{color: #ffffff;}
 
 .h1-container{
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 h2{font-size: 2em;}
@@ -186,8 +188,8 @@ footer {
 
 /* Typing keyframes */
 @keyframes typing {
-    from { width: 0; }
-    to { width: 80%; }
+    from { max-width: 0; }
+    to { max-width: 100%; }
 }
 
 /* Blinking cursor keyframes */
