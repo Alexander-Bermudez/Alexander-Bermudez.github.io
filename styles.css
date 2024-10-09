@@ -206,32 +206,36 @@ footer {
     height: auto; /* Maintain the aspect ratio */
 }
 
-.cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px; /* Space between buttons */
-            text-align: center;
-        }
 
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between buttons */
+}
+
+/* Button style */
 .cta-button {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
     padding: 15px 25px;
-    background-color: #0A66C2; /* Button background color */
+    background-color: #FFA000; /* Button background color */
     color: white;
     font-size: 16px;
     border: none;
     border-radius: 8px;
     text-decoration: none;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Button shadow */
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    text-align: center;
+    box-shadow: 0 0 15px rgba(255, 160, 0, 0.5), /* Initial glow */
+                0 0 30px rgba(255, 160, 0, 0.5); /* More intense outer glow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Button hover effect: glow + lift (no background color change) */
 .cta-button:hover {
-    background-color: #084593; /* Darker color on hover */
     transform: translateY(-3px); /* Lift button on hover */
+    box-shadow: 0 0 20px rgba(255, 160, 0, 0.8), /* Stronger outer glow on hover */
+                0 0 40px rgba(255, 160, 0, 0.8); /* Intense glow on hover */
 }
 
 .cta-button img {
