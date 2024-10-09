@@ -43,9 +43,9 @@ function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     // Draw multiple sine waves with different parameters
-    drawSineWave(50, 0.02, phaseShift1, canvas.height * 0.5, '#D4A000', 0.005); // Darker yellow wave 1
-    drawSineWave(30, 0.03, phaseShift2, canvas.height * 0.6, '#B89000', 0.005); // Darker yellow wave 2
-    drawSineWave(70, 0.015, phaseShift3, canvas.height * 0.4, '#A07800', 0.005); // Even darker yellow wave 3
+    drawSineWave(50, 0.02, phaseShift1, canvas.height * 0.5, 'rgba(139, 101, 0, 0.6)', 0.005); // Darker gold wave 1 with 60% opacity
+    drawSineWave(30, 0.03, phaseShift2, canvas.height * 0.6, 'rgba(120, 85, 0, 0.6)', 0.005); // Darker gold wave 2 with 60% opacity
+    drawSineWave(70, 0.015, phaseShift3, canvas.height * 0.4, 'rgba(160, 120, 0, 0.6)', 0.005); // Darker gold wave 3 with 60% opacity
 
 
     // Slow down the phase shifts to make waves move slower
