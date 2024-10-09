@@ -25,12 +25,6 @@ h1{color: #ffffff;}
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: blink-caret 1s step-end infinite 2s;
-    font-family: 'Space Mono', monospace;
-    font-size: 2rem; /* Adjust size as needed */
-    white-space: nowrap;
-    overflow: hidden;
-    width: fit-content;
 }
 
 h2{font-size: 2em;}
@@ -182,9 +176,7 @@ footer {
     overflow: hidden; /* Hide the overflow to create typing effect */
     border-right: 0.15em solid #ffffff; /* Temporary cursor */
     padding-right: 5px; /* Ensure a small gap between text and cursor */
-    visibility: hidden; /* Text is hidden initially */
-    animation: typing 4s steps(30, end) 3s forwards, blink-caret 0.75s step-end infinite 3s;
-    width: fit-content;
+    animation: typing 4s steps(30, end), blink-caret 0.75s step-end infinite;
 }
 
 /* Blinking cursor */
@@ -195,7 +187,7 @@ footer {
 
 /* Typing keyframes */
 @keyframes typing {
-    from { max-width: 0; visibility: visible; }
+    from { max-width: 0; }
     to { max-width: 100%; }
 }
 
