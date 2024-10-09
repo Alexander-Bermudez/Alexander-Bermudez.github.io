@@ -25,7 +25,12 @@ h1{color: #ffffff;}
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: blink-caret 1s step-end infinite 3s;
+    animation: blink-caret 1s step-end infinite 2s;
+    font-family: 'Space Mono', monospace;
+    font-size: 2rem; /* Adjust size as needed */
+    white-space: nowrap;
+    overflow: hidden;
+    width: fit-content;
 }
 
 h2{font-size: 2em;}
@@ -179,6 +184,7 @@ footer {
     padding-right: 5px; /* Ensure a small gap between text and cursor */
     visibility: hidden; /* Text is hidden initially */
     animation: typing 4s steps(30, end) 3s forwards, blink-caret 0.75s step-end infinite 3s;
+    width: fit-content;
 }
 
 /* Blinking cursor */
