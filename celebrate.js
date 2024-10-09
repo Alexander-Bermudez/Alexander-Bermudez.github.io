@@ -3,7 +3,7 @@ fireworkButton.onclick = function(event) {
     event.preventDefault(); // Prevent default anchor link behavior
 
     // Fire confetti
-    let duration = 3 * 1000; // 3 seconds
+    let duration = 2 * 1000; // 2 seconds
     let animationEnd = Date.now() + duration;
 
     const interval = setInterval(function() {

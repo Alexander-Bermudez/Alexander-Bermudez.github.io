@@ -89,7 +89,7 @@ nav ul li a {
     margin-bottom: 20px;
 }
 
-.cta {
+.white-button {
     width: 150px;
     display: inline-block;
     background-color: #ffffff;
@@ -101,7 +101,7 @@ nav ul li a {
     transition: box-shadow 0.3s ease; /* Smooth transition for glow effect */
 }
 
-.cta:hover {
+.white-button:hover {
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.5), /* Outer glow */
                 0 0 30px rgba(255, 255, 255, 0.5); /* More intense outer glow */
 }
@@ -132,7 +132,7 @@ footer {
                 0 0 30px rgba(255, 160, 0, 0.5); /* More intense outer glow */
 }
 
-.ctaContainer{
+.buttonsContainer{
     display: flex;
     justify-content: center;
     margin: 2rem 4rem;
@@ -204,4 +204,41 @@ footer {
 .image-container img {
     max-width: 100%; /* Ensure the image is responsive */
     height: auto; /* Maintain the aspect ratio */
+}
+
+.cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Space between buttons */
+            text-align: center;
+        }
+
+.cta-button {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 25px;
+    background-color: #0A66C2; /* Button background color */
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Button shadow */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-align: center;
+}
+
+.cta-button:hover {
+    background-color: #084593; /* Darker color on hover */
+    transform: translateY(-3px); /* Lift button on hover */
+}
+
+.cta-button img {
+    width: 40px; /* Size of the icon */
+    margin-bottom: 8px; /* Space between icon and text */
+}
+
+.cta-button span {
+    font-weight: bold;
 }
