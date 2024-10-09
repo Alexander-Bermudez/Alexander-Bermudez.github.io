@@ -176,8 +176,7 @@ footer {
     overflow: hidden; /* Hide the overflow to create typing effect */
     border-right: 0.15em solid #ffffff; /* Temporary cursor */
     padding-right: 5px; /* Ensure a small gap between text and cursor */
-    animation-delay: 2s;
-    animation: typing 3.5s steps(30, end), blink-caret 0.75s step-end infinite;
+    animation:blink-caret 3s step-end, typing 3.5s steps(30, end) 3s forwards, blink-caret 0.75s step-end infinite;
 }
 
 /* Blinking cursor */
