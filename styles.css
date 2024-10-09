@@ -9,6 +9,10 @@ h1, h2, h3, h4, h5, h6 {
     color: #ffffff; /* White color for headings */
 }
 
+h2{font-size: 2em;}
+
+a {color: #0000EE;}
+
 .animated-link {
     position: relative; /* Position relative to place the pseudo-element */
     text-decoration: none; /* Remove default underline */
@@ -68,6 +72,7 @@ nav ul li a {
 }
 
 .cta {
+    width: 150px;
     display: inline-block;
     background-color: #ffffff;
     color: #000000;
@@ -82,11 +87,6 @@ nav ul li a {
     color: #000000;
 }
 
-.about, .projects, .contact {
-    padding: 50px 20px;
-    text-align: center;
-}
-
 footer {
     background: #333;
     color: #fff;
@@ -96,6 +96,7 @@ footer {
 }
 
 .contact-button {
+    width: 150px;
     display: inline-block;
     background-color: #FFC107;
     color: #ffffff;
@@ -120,7 +121,7 @@ footer {
     height: 100%; /* Full height */
     background-color: rgba(0, 0, 0, 0.3); /* Dark overlay for wave */
     transform: translateY(-100%); /* Start above the button */
-    transition: left 0.5s ease; /* Animate the wave movement */
+    transition: left 2s ease; /* Animate the wave movement */
 }
 
 .contact-button:hover::before {
@@ -132,4 +133,8 @@ footer {
     justify-content: center;
     width: 100%;
     margin: 2rem 4rem;
+}
+
+.text-container{
+    margin-block: 6rem;
 }
