@@ -61,6 +61,7 @@ header {
     color: black;
     padding: 10px 0;
     text-align: center;
+    text-size: 24px;
 }
 
 nav ul {
@@ -75,7 +76,6 @@ nav ul li {
 
 nav ul li a {
     color: black;
-    text-size: 24px;
     text-decoration: none;
 }
 
