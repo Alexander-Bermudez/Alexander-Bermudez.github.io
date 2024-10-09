@@ -13,9 +13,9 @@ function createCircles(count) {
             x: Math.random() * canvas.width,  // Random initial x-position
             y: Math.random() * canvas.height, // Random initial y-position
             radius: Math.random() * 3 + 1,    // Small radius between 1 and 4
-            color: 'rgba(218,165,32,0.8)',    // Golden color with 80% opacity
-            dx: (Math.random() - 0.5) * 0.5,  // Small horizontal movement speed
-            dy: (Math.random() - 0.5) * 0.5   // Small vertical movement speed
+            color: `rgba(218,165,32,${Math.random() * 0.4 + 0.1})`, // Golden color with random lower opacity (between 0.1 and 0.5)
+            dx: (Math.random() - 0.5) * 0.1,  // **Slower horizontal movement speed**
+            dy: (Math.random() - 0.5) * 0.1   // **Slower vertical movement speed**
         });
     }
 }
