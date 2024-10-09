@@ -121,18 +121,20 @@ footer {
 .contact-button {
     width: 150px;
     display: inline-block;
-    background-color: #FFA000;
+    background: linear-gradient(45deg, #FFA000, #FFEA00);
     color: #ffffff;
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
+    border: none;
     margin: 1rem;
     overflow: hidden; /* Hide overflow for the wave effect */
-    transition: background-color 0.3s ease; /* Button hover transition */
+    animation: gradientAnimation 3s infinite alternate; /* Gradient animation */
+    transition: background 0.5s;
 }
 
 .contact-button:hover {
-    background-color: #FF8F00; /* Slightly darker green on hover */
+    background: linear-gradient(45deg, #CC8400, #FFCA00);
 }
 
 .contact-button::before {
@@ -203,6 +205,11 @@ footer {
 @keyframes blink-caret {
     from, to { border-color: transparent; }
     50% { border-color: white; } /* Blink the border color */
+}
+
+@keyframes gradientAnimation {
+    0% { background: linear-gradient(45deg, #FFA000, #FFEA00); }
+    100% { background: linear-gradient(45deg, #FFEA00, #FFA000); }
 }
 
 .columns-container {
