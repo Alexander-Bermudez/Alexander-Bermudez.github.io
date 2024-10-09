@@ -5,15 +5,16 @@ body {
     color: #ffffff;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h2, h3, h4, h5, h6 {
     color: #FFA000; /* White color for headings */
 }
+
+h1{color: #ffffff;}
 
 .h1-container{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 }
 
 h2{font-size: 2em;}
@@ -165,10 +166,10 @@ footer {
     white-space: nowrap; /* Prevent text from wrapping */
     overflow: hidden; /* Hide the overflow to create typing effect */
     border-right: 0.15em solid #ffffff; /* Temporary cursor */
-    width: 0; /* Start with 0 width */
-    animation: typing 3s steps(30, end), blink-caret 0.75s step-end infinite; /* Typing and blinking effect */
+    animation: typing 3s steps(30, end), blink-caret 0.75s step-end infinite;
 }
 
+/* Blinking cursor */
 .cursor {
     opacity: 1;
     animation: blink-caret 0.75s step-end infinite; /* Blinking cursor animation */
@@ -177,7 +178,7 @@ footer {
 /* Typing keyframes */
 @keyframes typing {
     from { width: 0; }
-    to { width: 100%; } /* Full width after typing */
+    to { width: 100%; }
 }
 
 /* Blinking cursor keyframes */
