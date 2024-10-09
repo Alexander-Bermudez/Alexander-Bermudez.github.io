@@ -179,7 +179,6 @@ footer {
     padding-right: 5px; /* Ensure a small gap between text and cursor */
     visibility: hidden; /* Text is hidden initially */
     animation: typing 4s steps(30, end) 3s forwards, blink-caret 0.75s step-end infinite 3s;
-    width: 0; /* Initially 0 to simulate typing effect */
 }
 
 /* Blinking cursor */
