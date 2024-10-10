@@ -6,7 +6,15 @@ body {
     line-height: 1.6;
     background-color: #121212;
     color: #ffffff;
+    overflow-x: hidden; /* Prevent horizontal overflow */
 }
+
+header, footer {
+    width: 100%; /* Ensure full width */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+}
+
 section {
     margin-top: 6.25rem;
     transition: opacity 1s ease, transform 1s ease;
@@ -352,7 +360,7 @@ footer {
         position: absolute;
         top: 60px; /* Adjust based on your navbar height */
         right: 0;
-        background-color: #333; /* Adjust as necessary */
+        background-color: white;
         width: 100%; /* Full width */
         z-index: 1;
     }
