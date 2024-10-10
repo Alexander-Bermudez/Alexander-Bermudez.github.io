@@ -124,7 +124,9 @@ footer {
     border-radius: 5px;
     border: none;
     margin: 1rem;
-    transition: box-shadow 0.3s ease; /* Smooth transition for glow effect */
+    box-shadow: 0 0 15px rgba(255, 160, 0, 0.5), /* Initial glow */
+                0 0 30px rgba(255, 160, 0, 0.5); /* More intense outer glow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contact-button:hover {
@@ -219,10 +221,11 @@ footer {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
+    width: 200px;
     padding: 15px 25px;
     background-color: #FFA000; /* Button background color */
     color: white;
-    font-size: 16px;
+    font-size: 1.17em;
     border: none;
     border-radius: 8px;
     text-decoration: none;
@@ -239,7 +242,7 @@ footer {
 }
 
 .cta-button img {
-    width: 40px; /* Size of the icon */
+    width: 150px; /* Size of the icon */
     margin-bottom: 8px; /* Space between icon and text */
 }
 
