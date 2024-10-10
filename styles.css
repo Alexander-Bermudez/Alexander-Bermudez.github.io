@@ -8,6 +8,7 @@ body {
     color: #ffffff;
 }
 section {
+    margin-top: 6.25rem;
     transition: opacity 1s ease, transform 1s ease;
     opacity: 0; /* Hidden initially */
     transform: translateY(50px); /* Moved down */
@@ -95,7 +96,7 @@ nav ul li a {
 
 .hero {
     min-height: 80vh; /* 80% of the viewport height */
-    padding: 6.25rem 6.25rem;
+    padding: 10rem 6.25rem;
     text-align: center;
 }
 
