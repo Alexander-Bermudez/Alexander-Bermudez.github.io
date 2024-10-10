@@ -7,6 +7,21 @@ body {
     background-color: #121212;
     color: #ffffff;
 }
+section {
+    min-height: 100vh; /* 100% of the viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    transition: opacity 1s ease, transform 1s ease;
+    opacity: 0; /* Hidden initially */
+    transform: translateY(50px); /* Moved down */
+}
+
+section.visible {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Slide into place */
+}
 
 canvas {
     display: block; /* Prevent scrollbars */
