@@ -156,6 +156,7 @@ footer {
 
 .buttonsContainer{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     margin: 2rem 4rem;
 }
@@ -209,6 +210,7 @@ footer {
 .columns-container {
     display: flex; /* Use flexbox for layout */
     align-items: center; /* Align items vertically centered */
+    flex-wrap: wrap;
 }
 
 .columnsText {
@@ -232,6 +234,7 @@ footer {
     display: flex;
     justify-content: center;
     gap: 30px; /* Space between buttons */
+    flex-wrap: wrap;
 }
 
 /* Button style */
