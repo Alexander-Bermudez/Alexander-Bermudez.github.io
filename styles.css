@@ -130,8 +130,9 @@ footer {
 }
 
 .contact-button:hover {
-    box-shadow: 0 0 15px rgba(255, 160, 0, 0.5), /* Outer glow */
-                0 0 30px rgba(255, 160, 0, 0.5); /* More intense outer glow */
+    transform: translateY(-3px); /* Lift button on hover */
+    box-shadow: 0 0 20px rgba(255, 160, 0, 0.8), /* Stronger outer glow on hover */
+                0 0 40px rgba(255, 160, 0, 0.8); /* Intense glow on hover */
 }
 
 .buttonsContainer{
@@ -213,7 +214,7 @@ footer {
 .cta-buttons {
     display: flex;
     justify-content: center;
-    gap: 20px; /* Space between buttons */
+    gap: 30px; /* Space between buttons */
 }
 
 /* Button style */
