@@ -273,28 +273,35 @@ footer {
 .projects-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 40px;
     padding: 20px;
 }
 
 .project-card {
-    width: 30%;
+    width: 20%; /* Default width for larger screens */
     background-color: #f0f0f0;
     margin-bottom: 20px;
-    border-radius: 10px;
+    border-radius: 10px; /* Rounded corners for the card */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+    overflow: hidden; /* Ensure content does not overflow the card */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 200px; /* Set a fixed height for the card */
+    flex-direction: column; /* Allow image and text to stack vertically */
 }
 
 .project-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.project-image {
+    width: 100%; /* Make image responsive to card width */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Cover the entire area */
+    border-top-left-radius: 10px; /* Rounded corners for top-left */
+    border-top-right-radius: 10px; /* Rounded corners for top-right */
 }
 
 .project-card a {
