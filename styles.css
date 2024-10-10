@@ -76,6 +76,23 @@ header {
     text-align: center;
 }
 
+.hamburger {
+    display: none; /* Hide by default */
+    font-size: 24px;
+    cursor: pointer;
+    color: white; /* Adjust color as necessary */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
 nav ul {
     list-style: none;
     display: flex;
@@ -329,6 +346,24 @@ footer {
 
 /********************** Media Queries for Responsiveness **********************/
 @media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide links by default */
+        flex-direction: column; /* Stack links vertically */
+        position: absolute;
+        top: 60px; /* Adjust based on your navbar height */
+        right: 0;
+        background-color: #333; /* Adjust as necessary */
+        width: 100%; /* Full width */
+        z-index: 1;
+    }
+
+    .nav-links.show {
+        display: flex; /* Show links when class is added */
+    }
+
+    .hamburger {
+        display: block; /* Show hamburger icon on smaller screens */
+    }
     .hero {
         min-height: 100vh; /* 50% of the viewport height */
         padding:5rem 1rem;
