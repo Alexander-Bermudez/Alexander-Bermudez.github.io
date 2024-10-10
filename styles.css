@@ -37,9 +37,7 @@ h2, h3, h4, h5, h6 {
 h1{color: #ffffff;}
 
 .h1-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: inline-block;
 }
 
 h2{font-size: 2em;}
@@ -186,7 +184,18 @@ footer {
     overflow: hidden; /* Hide the overflow to create typing effect */
     border-right: 0.15em solid #ffffff; /* Temporary cursor */
     padding-right: 5px; /* Ensure a small gap between text and cursor */
-    animation: typing 4s steps(30, end), blink-caret 0.75s step-end infinite;
+    display: block;
+    overflow: hidden; /* Ensures that the text is hidden when not fully typed */
+    border-right: 2px solid black; /* Cursor effect */
+    animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+/* Add delay for each line */
+.typing-effect:nth-child(1) {
+    animation: typing 2s steps(30, end), blink-caret 0.75s step-end infinite;
+}
+.typing-effect:nth-child(2) {
+    animation: typing 2s steps(30, end) 2s, blink-caret 0.75s step-end infinite;
 }
 
 /* Blinking cursor */
@@ -349,13 +358,20 @@ footer {
         padding:5rem 0rem;
         text-align: center;
     }
+
+    .hero p{
+        font-size: 12px;
+    }
+
     .typing-effect{
         font-size: 32px;
         white-space: normal; /* Allow wrapping */
     }
+
     .project-card {
         width: 100%; /* One card per row on small screens */
     }
+
     .text-container{
         margin: 1rem 1rem;
     }
