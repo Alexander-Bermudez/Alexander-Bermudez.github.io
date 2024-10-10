@@ -9,7 +9,7 @@ function handleIntersection(entries, observer) {
 
 // Create an Intersection Observer
 const observer = new IntersectionObserver(handleIntersection, {
-    threshold: 0.1 // Trigger when 10% of the section is visible
+    threshold: 0.3 // Trigger when 10% of the section is visible
 });
 
 // Observe all sections
