@@ -349,6 +349,10 @@ footer {
         padding:5rem 1rem;
         text-align: center;
     }
+    .h1-container{
+        font-size: 32px;
+        white-space: normal; /* Allow wrapping */
+    }
     .project-card {
         width: 100%; /* One card per row on small screens */
     }
