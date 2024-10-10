@@ -208,7 +208,7 @@ footer {
 }
 
 .columns-container {
-    display: inline-flex; /* Use flexbox for layout */
+    display: flex; /* Use flexbox for layout */
     align-items: center; /* Align items vertically centered */
     flex-direction: column;
 }
