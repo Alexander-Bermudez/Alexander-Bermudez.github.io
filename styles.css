@@ -29,7 +29,7 @@ h1{color: #ffffff;}
 
 h2{font-size: 2em;}
 
-a {color: #0000EE;}
+a {color: rgb(0, 132, 255);}
 
 .animated-link {
     position: relative; /* Position relative to place the pseudo-element */
