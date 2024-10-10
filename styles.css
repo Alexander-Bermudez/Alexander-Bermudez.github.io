@@ -334,12 +334,20 @@ footer {
         padding:5rem 1rem;
         text-align: center;
     }
+
     .typing-effect{
         font-size: 32px;
         white-space: normal; /* Allow wrapping */
     }
+
     .text-container{
         margin: 1rem 1rem;
+    }
+
+    .columns-container {
+        display: flex;
+        align-items: center;
+        flex-direction: column-reverse;
     }
 
     .project-card {
@@ -372,11 +380,26 @@ footer {
         transform: translateY(0); /* Final position on screen */
     }
 
-    .project-card {
-        width: 100%; /* One card per row on small screens */
-    }
-
     .text-container{
         margin: 1rem 1rem;
+    }
+
+    .columns-container {
+        display: flex;
+        align-items: center;
+        flex-direction: column-reverse;
+    }
+
+    .image-container img {
+        max-width: 75%;
+        height: auto;
+    }
+
+    .columnsText {
+        padding-right: 0px;
+    }
+
+    .project-card {
+        width: 100%; /* One card per row on small screens */
     }
 }
