@@ -210,7 +210,6 @@ footer {
 .columns-container {
     display: flex; /* Use flexbox for layout */
     align-items: center; /* Align items vertically centered */
-    flex-direction: column;
 }
 
 .columnsText {
