@@ -41,7 +41,7 @@ a {color: #0000EE;}
     position: absolute; /* Position it absolutely */
     width: 0; /* Start with no width */
     height: 2px; /* Set the height of the underline */
-    background-color: #FFC107; /* Underline color */
+    background-color: #FFA000; /* Underline color */
     bottom: 0; /* Position it at the bottom of the link */
     left: 50%; /* Center it horizontally */
     transition: width 0.3s ease, left 0.3s ease; /* Animate width and left position */
