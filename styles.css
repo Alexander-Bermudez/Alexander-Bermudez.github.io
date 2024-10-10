@@ -315,6 +315,7 @@ footer {
 
 .project-info {
     padding: 15px;
+    flex-grow: 1;
 }
 
 .project-info h3 {
