@@ -8,6 +8,8 @@ body {
     color: #ffffff;
 }
 section {
+    display: flex;
+    align-items: center;
     min-height: 100vh; /* 100% of the viewport height */
     transition: opacity 1s ease, transform 1s ease;
     opacity: 0; /* Hidden initially */
