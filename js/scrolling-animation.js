@@ -23,7 +23,7 @@ sections.forEach(section => {
 
 // JavaScript to handle fade-up on smaller screens for hero
 document.addEventListener("DOMContentLoaded", function () {
-    const lines = document.querySelectorAll(".line");
+    const lines = document.querySelectorAll(".typing-effect");
 
     const observer = new IntersectionObserver(
         (entries, observer) => {
