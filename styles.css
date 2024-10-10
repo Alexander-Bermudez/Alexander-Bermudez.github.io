@@ -293,7 +293,8 @@ footer {
 
 .project-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8), /* Stronger white glow on hover */
+                0 0 40px rgba(255, 255, 255, 0.8); /* More intense outer glow */
 }
 
 .project-image {
