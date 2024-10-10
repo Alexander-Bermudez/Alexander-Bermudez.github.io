@@ -98,12 +98,15 @@ nav ul li a {
     text-decoration: none;
     border-radius: 5px;
     margin: 1rem;
-    transition: box-shadow 0.3s ease; /* Smooth transition for glow effect */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5), /* Initial white glow */
+                0 0 30px rgba(255, 255, 255, 0.5); /* More intense outer glow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .white-button:hover {
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5), /* Outer glow */
-                0 0 30px rgba(255, 255, 255, 0.5); /* More intense outer glow */
+    transform: translateY(-3px); /* Lift button on hover */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8), /* Stronger white glow on hover */
+                0 0 40px rgba(255, 255, 255, 0.8); /* More intense outer glow */
 }
 
 footer {
@@ -208,8 +211,6 @@ footer {
     max-width: 100%; /* Ensure the image is responsive */
     height: auto; /* Maintain the aspect ratio */
 }
-
-
 
 .cta-buttons {
     display: flex;
