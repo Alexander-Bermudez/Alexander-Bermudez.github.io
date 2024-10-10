@@ -208,9 +208,9 @@ footer {
 }
 
 .columns-container {
-    display: flex; /* Use flexbox for layout */
+    display: inline-flex; /* Use flexbox for layout */
     align-items: center; /* Align items vertically centered */
-    flex-wrap: wrap;
+    flex-direction: column;
 }
 
 .columnsText {
