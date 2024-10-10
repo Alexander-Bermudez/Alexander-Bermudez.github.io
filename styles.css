@@ -9,9 +9,6 @@ body {
 }
 section {
     min-height: 100vh; /* 100% of the viewport height */
-    display: flex;
-    justify-content: center;
-    align-items: center;
     transition: opacity 1s ease, transform 1s ease;
     opacity: 0; /* Hidden initially */
     transform: translateY(50px); /* Moved down */
