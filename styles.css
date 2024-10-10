@@ -346,10 +346,10 @@ footer {
 @media (max-width: 480px) {
     .hero {
         min-height: 100vh; /* 50% of the viewport height */
-        padding:5rem 1rem;
+        padding:5rem 0rem;
         text-align: center;
     }
-    .h1-container{
+    .typing-effect{
         font-size: 32px;
         white-space: normal; /* Allow wrapping */
     }
