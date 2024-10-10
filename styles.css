@@ -328,13 +328,31 @@ footer {
 
 /********************** Media Queries for Responsiveness **********************/
 @media (max-width: 768px) {
+    .hero {
+        min-height: 100vh; /* 50% of the viewport height */
+        padding:5rem 1rem;
+        text-align: center;
+    }
+
+    .text-container{
+        margin: 1rem 1rem;
+    }
+
     .project-card {
         width: 45%; /* Two cards per row on medium screens */
     }
 }
 
 @media (max-width: 480px) {
+    .hero {
+        min-height: 100vh; /* 50% of the viewport height */
+        padding:5rem 1rem;
+        text-align: center;
+    }
     .project-card {
         width: 100%; /* One card per row on small screens */
+    }
+    .text-container{
+        margin: 1rem 1rem;
     }
 }
