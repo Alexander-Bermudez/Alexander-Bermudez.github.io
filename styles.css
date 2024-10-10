@@ -16,7 +16,7 @@ canvas {
 }
 
 h2, h3, h4, h5, h6 {
-    color: #FFA000; /* White color for headings */
+    color: #FFA000;
 }
 
 h1{color: #ffffff;}
@@ -121,7 +121,7 @@ footer {
     width: 150px;
     display: inline-block;
     background-color: #FFA000;
-    color: #ffffff;
+    color: black;
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
@@ -226,7 +226,7 @@ footer {
     width: 200px;
     padding: 15px 25px;
     background-color: #FFA000; /* Button background color */
-    color: white;
+    color: black;
     font-size: 1.17em;
     border: none;
     border-radius: 8px;
