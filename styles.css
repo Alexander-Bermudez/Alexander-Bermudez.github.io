@@ -80,7 +80,7 @@ header {
     display: none; /* Hide by default */
     font-size: 24px;
     cursor: pointer;
-    color: white; /* Adjust color as necessary */
+    color: black; 
 }
 
 .nav-links {
@@ -364,6 +364,7 @@ footer {
     .hamburger {
         display: block; /* Show hamburger icon on smaller screens */
     }
+
     .hero {
         min-height: 100vh; /* 50% of the viewport height */
         padding:5rem 1rem;
@@ -392,7 +393,7 @@ footer {
 
 @media (max-width: 480px) {
     .hero {
-        min-height: 100vh; /* 50% of the viewport height */
+        min-height: 80vh; /* 80% of the viewport height */
         padding:5rem 0rem;
         text-align: center;
     }
@@ -403,6 +404,7 @@ footer {
 
     .typing-effect{
         font-size: 18px;
+        color: #FFA000;
         animation: none; /* Disable typewriter effect */
         border: none; /* Remove the cursor */
         opacity: 0; /* Initially hidden */
