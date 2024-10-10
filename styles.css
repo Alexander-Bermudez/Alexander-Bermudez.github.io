@@ -184,18 +184,17 @@ footer {
     overflow: hidden; /* Hide the overflow to create typing effect */
     border-right: 0.15em solid #ffffff; /* Temporary cursor */
     padding-right: 5px; /* Ensure a small gap between text and cursor */
-    display: inline-block;
+    display: block;
     overflow: hidden; /* Ensures that the text is hidden when not fully typed */
     border-right: 2px solid black; /* Cursor effect */
-    animation: typing 3s steps(30, end) forwards, blink-caret 0.75s step-end infinite;
 }
 
 /* Add delay for each line */
-.line:nth-child(1) {
-    animation-delay: 0s;
+.typing-effect:nth-child(1) {
+    animation: typing 2s steps(30, end), blink-caret 0.75s step-end infinite;
 }
-.line:nth-child(2) {
-    animation-delay: 3s;
+.typing-effect:nth-child(2) {
+    animation: typing 2s steps(30, end) 2s, blink-caret 0.75s step-end infinite;
 }
 
 /* Blinking cursor */
@@ -231,7 +230,6 @@ footer {
     display: flex; /* Use flexbox to center the image */
     justify-content: center; /* Center the image horizontally */
     align-items: center; /* Center the image vertically */
-    max-width: 380px;
 }
 
 .image-container img {
@@ -344,17 +342,8 @@ footer {
         text-align: center;
     }
 
-    .typing-effect{
-        font-size: 28px;
-        white-space: normal;
-    }
-
     .text-container{
         margin: 1rem 1rem;
-    }
-
-    .columns-container {
-        flex-direction: column-reverse;
     }
 
     .project-card {
@@ -374,11 +363,8 @@ footer {
     }
 
     .typing-effect{
-        font-size: 28px;
-    }
-
-    .columns-container {
-        flex-direction: column-reverse;
+        font-size: 32px;
+        white-space: normal; /* Allow wrapping */
     }
 
     .project-card {
