@@ -308,3 +308,24 @@ footer {
 .project-info {
     padding: 15px;
 }
+
+.project-info h3 {
+    color: black;
+}
+
+.project-info p {
+    color: black;
+}
+
+/********************** Media Queries for Responsiveness **********************/
+@media (max-width: 768px) {
+    .project-card {
+        width: 45%; /* Two cards per row on medium screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .project-card {
+        width: 100%; /* One card per row on small screens */
+    }
+}
