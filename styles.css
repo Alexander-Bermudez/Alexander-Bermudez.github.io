@@ -8,7 +8,6 @@ body {
     color: #ffffff;
 }
 section {
-    min-height: 80vh; /* 80% of the viewport height */
     transition: opacity 1s ease, transform 1s ease;
     opacity: 0; /* Hidden initially */
     transform: translateY(50px); /* Moved down */
