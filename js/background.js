@@ -12,7 +12,7 @@ function createCircles(count) {
         circles.push({
             x: Math.random() * canvas.width,  // Random initial x-position
             y: Math.random() * canvas.height, // Random initial y-position
-            radius: Math.random() * 3 + 1,    // Small radius between 1 and 4
+            radius: Math.random() * 2 + 1,    // Small radius between 1 and 3
             color: `rgba(218,165,32,${Math.random() * 0.4 + 0.1})`, // Golden color with random lower opacity (between 0.1 and 0.5)
             dx: (Math.random() - 0.5) * 0.1,  // **Slower horizontal movement speed**
             dy: (Math.random() - 0.5) * 0.1   // **Slower vertical movement speed**

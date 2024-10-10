@@ -1,24 +1,19 @@
-// Function to check if an element is in the viewport
-function isInViewport(element) {
-    const rect = element.getBoundingClientRect();
-    return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-}
-
-// Function to add 'visible' class to sections when in view
-function fadeInSections() {
-    const sections = document.querySelectorAll('section');
-    sections.forEach(section => {
-        if (isInViewport(section)) {
-            section.classList.add('visible');
+// Function to handle intersection observer and fade in effect
+function handleIntersection(entries, observer) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
         }
     });
 }
 
-// Run the fadeInSections function on page load and scroll
-window.addEventListener('scroll', fadeInSections);
-window.addEventListener('load', fadeInSections);
+// Create an Intersection Observer
+const observer = new IntersectionObserver(handleIntersection, {
+    threshold: 0.1 // Trigger when 10% of the section is visible
+});
+
+// Observe all sections
+const sections = document.querySelectorAll('section');
+sections.forEach(section => {
+    observer.observe(section);
+});
