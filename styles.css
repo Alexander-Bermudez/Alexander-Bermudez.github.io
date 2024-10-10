@@ -18,6 +18,7 @@ section.visible {
     transform: translateY(0); /* Slide into place */
 }
 
+
 canvas {
     display: block; /* Prevent scrollbars */
     position: fixed; /* Keep canvas fixed as background */
@@ -93,7 +94,8 @@ nav ul li a {
 }
 
 .hero {
-    padding: 100px 100px;
+    min-height: 80vh; /* 80% of the viewport height */
+    padding: 6.25rem 6.25rem;
     text-align: center;
 }
 
