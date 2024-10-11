@@ -17,12 +17,12 @@ let circles = [];
 function createCircles(count) {
     for (let i = 0; i < count; i++) {
         circles.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            radius: Math.random() * 2 + 1,
-            color: `rgba(218,165,32,${Math.random() * 0.4 + 0.1})`,
-            dx: (Math.random() - 0.5) * 0.1,
-            dy: (Math.random() - 0.5) * 0.1
+            x: Math.random() * canvas.width,  // Random initial x-position
+            y: Math.random() * canvas.height, // Random initial y-position
+            radius: Math.random() * 2 + 1,    // Small radius between 1 and 3
+            color: rgba(218,165,32,${Math.random() * 0.4 + 0.1}), // Golden color with random lower opacity (between 0.1 and 0.5)
+            dx: (Math.random() - 0.5) * 0.1,  // **Slower horizontal movement speed**
+            dy: (Math.random() - 0.5) * 0.1   // **Slower vertical movement speed**
         });
     }
 }
@@ -43,6 +43,7 @@ function updateCircles() {
         circle.x += circle.dx;
         circle.y += circle.dy;
 
+        // Wrap the circles around the edges of the canvas
         if (circle.x > canvas.width) circle.x = 0;
         if (circle.x < 0) circle.x = canvas.width;
         if (circle.y > canvas.height) circle.y = 0;
@@ -50,13 +51,8 @@ function updateCircles() {
     });
 }
 
-// Ripple effect data
-let ripples = [];
-let globalPhaseShift = 0;
-let globalAmplitudeModifier = 1;
-
-// Function to draw sine wave with ripple effect
-function drawSineWave(amplitude, frequency, phaseShift, verticalOffset, color) {
+// Add the sine wave animation from previous code
+function drawSineWave(amplitude, frequency, phaseShift, verticalOffset, color, speed) {
     const width = canvas.width;
     const height = canvas.height;
 
@@ -66,15 +62,7 @@ function drawSineWave(amplitude, frequency, phaseShift, verticalOffset, color) {
     ctx.lineWidth = 2;
 
     for (let x = 0; x < width; x++) {
-        let y = (amplitude * globalAmplitudeModifier) * Math.sin((x * frequency) + phaseShift + globalPhaseShift) + verticalOffset;
-
-        // Apply ripple effect from all current ripples
-        ripples.forEach(ripple => {
-            const distFromRipple = Math.abs(x - ripple.x);
-            const rippleEffect = ripple.strength * Math.sin(distFromRipple * ripple.frequency);
-            y += rippleEffect * Math.exp(-distFromRipple / ripple.radius); // Decaying ripple as it spreads
-        });
-
+        const y = amplitude * Math.sin((x * frequency) + phaseShift) + verticalOffset;
         ctx.lineTo(x, y);
     }
 
@@ -85,64 +73,20 @@ function drawSineWave(amplitude, frequency, phaseShift, verticalOffset, color) {
 let phaseShift1 = 0;
 let phaseShift2 = 0;
 let phaseShift3 = 0;
-let baseAmplitude1 = 50;
-let baseAmplitude2 = 30;
-let baseAmplitude3 = 70;
 
-// Function to create a new ripple
-function createRipple(x) {
-    ripples.push({
-        x: x,
-        radius: 200,       // How far the ripple spreads
-        strength: 10,      // Ripple strength
-        frequency: 0.03    // Ripple frequency
-    });
-
-    // Slowly modify the global phase shift and amplitude modifier
-    globalPhaseShift += 0.05;   // Shift the whole sine wave slightly
-    globalAmplitudeModifier *= 0.98; // Slightly reduce amplitude over time to create a subtle "memory" effect
-}
-
-// Mouse and touch movement listener for ripple effect
-function handleInteraction(event) {
-    const canvasBounds = canvas.getBoundingClientRect();
-    let mouseX;
-
-    if (event.type === 'mousemove') {
-        mouseX = event.clientX - canvasBounds.left;
-    } else if (event.type === 'touchmove') {
-        mouseX = event.touches[0].clientX - canvasBounds.left;
-    }
-
-    createRipple(mouseX);
-}
-
-// Main animation loop
+// Main animation loop to animate both sine waves and circles
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    const height = canvas.height;
+    // Draw sine waves with darker gold
+    drawSineWave(50, 0.02, phaseShift1, canvas.height * 0.5, 'rgba(139, 101, 0, 0.6)', 0.005);
+    drawSineWave(30, 0.03, phaseShift2, canvas.height * 0.6, 'rgba(120, 85, 0, 0.6)', 0.005);
+    drawSineWave(70, 0.015, phaseShift3, canvas.height * 0.4, 'rgba(160, 120, 0, 0.6)', 0.005);
 
-    // Draw sine waves with ripple effects
-    drawSineWave(baseAmplitude1, 0.02, phaseShift1, height * 0.5, 'rgba(139, 101, 0, 0.6)');
-    drawSineWave(baseAmplitude2, 0.03, phaseShift2, height * 0.6, 'rgba(120, 85, 0, 0.6)');
-    drawSineWave(baseAmplitude3, 0.015, phaseShift3, height * 0.4, 'rgba(160, 120, 0, 0.6)');
-
-    // Animate the phase shift for continuous movement
+    // Animate the phase shift for the sine waves
     phaseShift1 += 0.002;
     phaseShift2 += 0.001;
     phaseShift3 += 0.0015;
-
-    // Update ripples
-    ripples.forEach((ripple, index) => {
-        ripple.radius += 2; // Ripple expansion speed
-        ripple.strength *= 0.99; // Gradual ripple decay
-
-        // Remove ripple if strength becomes too low
-        if (ripple.strength < 0.05) {
-            ripples.splice(index, 1);
-        }
-    });
 
     // Draw and update circles (golden stars)
     drawCircles();
@@ -152,14 +96,13 @@ function animate() {
 }
 
 // Initialize circles and start animation
-createCircles(100);
+createCircles(100); // You can increase or decrease the number of circles
 animate();
 
 // Add event listener for window resize
 window.addEventListener('resize', () => {
-    setCanvasSize();
+    setCanvasSize(); // Resize the canvas
+    // Optionally, you can recreate circles to adapt to the new size
+    // circles = []; // Clear the circles array
+    // createCircles(100); // Recreate circles based on the new size
 });
-
-// Event listeners for mouse and touch interactions
-window.addEventListener('mousemove', handleInteraction);
-window.addEventListener('touchmove', handleInteraction, { passive: true });
