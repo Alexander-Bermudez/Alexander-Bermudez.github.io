@@ -52,6 +52,8 @@ function updateCircles() {
 
 // Ripple effect data
 let ripples = [];
+let globalPhaseShift = 0;
+let globalAmplitudeModifier = 1;
 
 // Function to draw sine wave with ripple effect
 function drawSineWave(amplitude, frequency, phaseShift, verticalOffset, color) {
@@ -64,15 +66,13 @@ function drawSineWave(amplitude, frequency, phaseShift, verticalOffset, color) {
     ctx.lineWidth = 2;
 
     for (let x = 0; x < width; x++) {
-        let y = amplitude * Math.sin((x * frequency) + phaseShift) + verticalOffset;
+        let y = (amplitude * globalAmplitudeModifier) * Math.sin((x * frequency) + phaseShift + globalPhaseShift) + verticalOffset;
 
         // Apply ripple effect from all current ripples
         ripples.forEach(ripple => {
             const distFromRipple = Math.abs(x - ripple.x);
-            if (distFromRipple < ripple.radius) {
-                const rippleEffect = ripple.strength * Math.sin(distFromRipple * ripple.frequency);
-                y += rippleEffect * (ripple.radius - distFromRipple) / ripple.radius; // Dampen as ripple moves outward
-            }
+            const rippleEffect = ripple.strength * Math.sin(distFromRipple * ripple.frequency);
+            y += rippleEffect * Math.exp(-distFromRipple / ripple.radius); // Decaying ripple as it spreads
         });
 
         ctx.lineTo(x, y);
@@ -93,11 +93,14 @@ let baseAmplitude3 = 70;
 function createRipple(x) {
     ripples.push({
         x: x,
-        radius: 0,
-        maxRadius: 150,    // The maximum size of the ripple
-        strength: 20,      // Initial ripple strength
-        frequency: 0.05    // Ripple wave frequency
+        radius: 200,       // How far the ripple spreads
+        strength: 10,      // Ripple strength
+        frequency: 0.03    // Ripple frequency
     });
+
+    // Slowly modify the global phase shift and amplitude modifier
+    globalPhaseShift += 0.05;   // Shift the whole sine wave slightly
+    globalAmplitudeModifier *= 0.98; // Slightly reduce amplitude over time to create a subtle "memory" effect
 }
 
 // Mouse and touch movement listener for ripple effect
@@ -132,11 +135,11 @@ function animate() {
 
     // Update ripples
     ripples.forEach((ripple, index) => {
-        ripple.radius += 3; // Ripple expansion speed
-        ripple.strength *= 0.98; // Dampen ripple over time
+        ripple.radius += 2; // Ripple expansion speed
+        ripple.strength *= 0.99; // Gradual ripple decay
 
-        // Remove ripple if it has reached its maximum radius or strength is too low
-        if (ripple.radius > ripple.maxRadius || ripple.strength < 0.1) {
+        // Remove ripple if strength becomes too low
+        if (ripple.strength < 0.05) {
             ripples.splice(index, 1);
         }
     });
