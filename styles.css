@@ -364,25 +364,24 @@ footer {
 /********************** Media Queries for Responsiveness on Mobile **********************/
 @media (max-width: 1025px) {
     .nav-links {
-        display: flex; /* Keep display flex for stacking */
+        list-style: none;
+        display: flex;
         flex-direction: column; /* Stack links vertically */
-        position: relative;
+        position: absolute;
         top: 60px; /* Adjust based on your navbar height */
         right: 0;
         background-color: white;
         width: 100%; /* Full width */
         z-index: 1;
-        transform: translateY(-20px); /* Start slightly above */
-        opacity: 0; /* Start as invisible */
-        height: 0; /* Start with height 0 */
-        transition: transform 0.5s ease, opacity 0.5s ease, height 0.5s ease; /* Smooth transition */
+        height: 0; /* Start hidden */
+        overflow: hidden; /* Prevent overflow when hidden */
+        transition: transform 0.5s ease, opacity 0.5s ease, height 0.5s ease;
     }
 
     .nav-links.show {
-        transform: translateY(0); /* Move to original position */
-        opacity: 1; /* Fade in */
-        height: 128px; /* Set to auto for full height */
-        margin: 0;
+        display: flex;
+        margin-top: 0;
+        max-height: 300px; /* Adjust based on your menu items */
     }
 
     .hamburger {
