@@ -51,11 +51,10 @@ function updateCircles() {
 }
 
 // Ripple effect data
-let rippleX = null;
-let rippleStrength = 0;
+let ripples = [];
 
 // Function to draw sine wave with ripple effect
-function drawSineWave(amplitude, frequency, phaseShift, verticalOffset, color, rippleX, rippleStrength) {
+function drawSineWave(amplitude, frequency, phaseShift, verticalOffset, color) {
     const width = canvas.width;
     const height = canvas.height;
 
@@ -67,12 +66,14 @@ function drawSineWave(amplitude, frequency, phaseShift, verticalOffset, color, r
     for (let x = 0; x < width; x++) {
         let y = amplitude * Math.sin((x * frequency) + phaseShift) + verticalOffset;
 
-        // Apply ripple effect if within a ripple zone
-        if (rippleX !== null && Math.abs(x - rippleX) < 100) {
-            const rippleDist = Math.abs(x - rippleX);
-            const rippleEffect = rippleStrength * Math.sin(rippleDist * 0.1); // Ripple sinusoidal disturbance
-            y += rippleEffect * (100 - rippleDist) / 100; // Dampens as ripple propagates outward
-        }
+        // Apply ripple effect from all current ripples
+        ripples.forEach(ripple => {
+            const distFromRipple = Math.abs(x - ripple.x);
+            if (distFromRipple < ripple.radius) {
+                const rippleEffect = ripple.strength * Math.sin(distFromRipple * ripple.frequency);
+                y += rippleEffect * (ripple.radius - distFromRipple) / ripple.radius; // Dampen as ripple moves outward
+            }
+        });
 
         ctx.lineTo(x, y);
     }
@@ -88,23 +89,29 @@ let baseAmplitude1 = 50;
 let baseAmplitude2 = 30;
 let baseAmplitude3 = 70;
 
-let mouseX = 0;
-let mouseY = 0;
+// Function to create a new ripple
+function createRipple(x) {
+    ripples.push({
+        x: x,
+        radius: 0,
+        maxRadius: 150,    // The maximum size of the ripple
+        strength: 20,      // Initial ripple strength
+        frequency: 0.05    // Ripple wave frequency
+    });
+}
 
 // Mouse and touch movement listener for ripple effect
-function createRipple(event) {
+function handleInteraction(event) {
     const canvasBounds = canvas.getBoundingClientRect();
+    let mouseX;
+
     if (event.type === 'mousemove') {
         mouseX = event.clientX - canvasBounds.left;
-        mouseY = event.clientY - canvasBounds.top;
     } else if (event.type === 'touchmove') {
         mouseX = event.touches[0].clientX - canvasBounds.left;
-        mouseY = event.touches[0].clientY - canvasBounds.top;
     }
-    
-    // Set ripple parameters
-    rippleX = mouseX;
-    rippleStrength = 15; // Initial ripple strength
+
+    createRipple(mouseX);
 }
 
 // Main animation loop
@@ -114,19 +121,25 @@ function animate() {
     const height = canvas.height;
 
     // Draw sine waves with ripple effects
-    drawSineWave(baseAmplitude1, 0.02, phaseShift1, height * 0.5, 'rgba(139, 101, 0, 0.6)', rippleX, rippleStrength);
-    drawSineWave(baseAmplitude2, 0.03, phaseShift2, height * 0.6, 'rgba(120, 85, 0, 0.6)', rippleX, rippleStrength);
-    drawSineWave(baseAmplitude3, 0.015, phaseShift3, height * 0.4, 'rgba(160, 120, 0, 0.6)', rippleX, rippleStrength);
+    drawSineWave(baseAmplitude1, 0.02, phaseShift1, height * 0.5, 'rgba(139, 101, 0, 0.6)');
+    drawSineWave(baseAmplitude2, 0.03, phaseShift2, height * 0.6, 'rgba(120, 85, 0, 0.6)');
+    drawSineWave(baseAmplitude3, 0.015, phaseShift3, height * 0.4, 'rgba(160, 120, 0, 0.6)');
 
     // Animate the phase shift for continuous movement
     phaseShift1 += 0.002;
     phaseShift2 += 0.001;
     phaseShift3 += 0.0015;
 
-    // Gradually dampen the ripple strength
-    if (rippleStrength > 0) {
-        rippleStrength *= 0.95; // Reduce ripple strength over time
-    }
+    // Update ripples
+    ripples.forEach((ripple, index) => {
+        ripple.radius += 3; // Ripple expansion speed
+        ripple.strength *= 0.98; // Dampen ripple over time
+
+        // Remove ripple if it has reached its maximum radius or strength is too low
+        if (ripple.radius > ripple.maxRadius || ripple.strength < 0.1) {
+            ripples.splice(index, 1);
+        }
+    });
 
     // Draw and update circles (golden stars)
     drawCircles();
@@ -145,5 +158,5 @@ window.addEventListener('resize', () => {
 });
 
 // Event listeners for mouse and touch interactions
-window.addEventListener('mousemove', createRipple);
-window.addEventListener('touchmove', createRipple, { passive: true });
+window.addEventListener('mousemove', handleInteraction);
+window.addEventListener('touchmove', handleInteraction, { passive: true });
