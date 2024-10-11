@@ -364,8 +364,7 @@ footer {
 /********************** Media Queries for Responsiveness on Mobile **********************/
 @media (max-width: 1025px) {
     .nav-links {
-        list-style: none;
-        display: flex;
+        display: flex; /* Default display */
         flex-direction: column; /* Stack links vertically */
         position: absolute;
         top: 60px; /* Adjust based on your navbar height */
@@ -373,13 +372,14 @@ footer {
         background-color: white;
         width: 100%; /* Full width */
         z-index: 1;
-        height: 0; /* Start hidden */
-        overflow: hidden; /* Prevent overflow when hidden */
-        transition: height 0.5s ease; /* Smooth transition */
+        transform: translateY(-20px); /* Start slightly above */
+        opacity: 0; /* Start as invisible */
+        transition: transform 0.5s ease, opacity 0.5s ease; /* Smooth transition */
     }
 
     .nav-links.show {
-        height: auto;
+        transform: translateY(0); /* Move to original position */
+        opacity: 1; /* Fade in */
     }
 
     .hamburger {
