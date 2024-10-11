@@ -366,7 +366,7 @@ footer {
     .nav-links {
         display: flex; /* Keep display flex for stacking */
         flex-direction: column; /* Stack links vertically */
-        position: absolute;
+        position: fixed;
         top: 60px; /* Adjust based on your navbar height */
         right: 0;
         background-color: white;
