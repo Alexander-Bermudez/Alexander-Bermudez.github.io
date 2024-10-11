@@ -3,14 +3,13 @@ const navLinks = document.getElementById('nav-links');
 
 // Toggle the 'show' class to control visibility when the hamburger is clicked
 hamburger.onclick = function() {
-    navLinks.classList.toggle('show'); // Toggle 'show' class to control visibility
+    const isVisible = navLinks.classList.toggle('show'); // Toggle 'show' class
 
-    if (navLinks.classList.contains('show')) {
-        // Calculate the height dynamically and apply it
-        const linksHeight = navLinks.scrollHeight + 'px'; // Get the height of the content
-        navLinks.style.height = linksHeight; // Set the height to the content height
+    // Manually adjust height
+    if (isVisible) {
+        navLinks.style.height = navLinks.scrollHeight + 'px'; // Set height to scrollHeight when visible
     } else {
-        navLinks.style.height = '0'; // Collapse back to height 0
+        navLinks.style.height = '0'; // Collapse to height 0 when not visible
     }
 };
 
@@ -20,6 +19,6 @@ const links = navLinks.getElementsByTagName('a'); // Get all anchor links in the
 for (let i = 0; i < links.length; i++) {
     links[i].onclick = function() {
         navLinks.classList.remove('show'); // Remove 'show' class to hide the menu
-        navLinks.style.height = '0'; // Collapse back to height 0
+        navLinks.style.height = '0'; // Collapse to height 0
     };
 }
