@@ -306,6 +306,7 @@ footer {
     grid-template-columns: repeat(3, 1fr); /* Always maintain 3 columns */
     gap: 40px;
     padding: 20px;
+    margin: 0 auto;
 }
 
 .projects-container::after {
@@ -360,8 +361,8 @@ footer {
     color: black;
 }
 
-/********************** Media Queries for Responsiveness **********************/
-@media (max-width: 768px) {
+/********************** Media Queries for Responsiveness on Mobile **********************/
+@media (max-width: 800px) {
     .nav-links {
         display: none; /* Hide links by default */
         flex-direction: column; /* Stack links vertically */
@@ -461,5 +462,22 @@ footer {
 
     .projects-container {
         grid-template-columns: 1fr; /* Display 1 column on mobile */
+    }
+}
+
+/********************** Media Queries for Responsiveness on Desktop **********************/
+@media (min-width: 1024px) {
+    .projects-container {
+        width: 90%; /* Increase the width and center it */
+        max-width: 1200px; /* Limit maximum width */
+        padding: 40px; /* Increase padding */
+    }
+}
+
+@media (min-width: 1440px) {
+    .projects-container {
+        width: 85%;
+        max-width: 1400px;
+        padding: 50px; /* Add more padding for extra-large screens */
     }
 }
