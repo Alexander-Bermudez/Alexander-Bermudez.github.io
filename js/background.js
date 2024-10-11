@@ -1,7 +1,14 @@
 const canvas = document.getElementById("backgroundCanvas");
 const ctx = canvas.getContext("2d");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+
+// Function to set canvas dimensions
+function setCanvasSize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+
+// Set initial canvas size
+setCanvasSize();
 
 // Array to hold the circle "stars"
 let circles = [];
@@ -91,3 +98,11 @@ function animate() {
 // Initialize circles and start animation
 createCircles(100); // You can increase or decrease the number of circles
 animate();
+
+// Add event listener for window resize
+window.addEventListener('resize', () => {
+    setCanvasSize(); // Resize the canvas
+    // Optionally, you can recreate circles to adapt to the new size
+    // circles = []; // Clear the circles array
+    // createCircles(100); // Recreate circles based on the new size
+});
