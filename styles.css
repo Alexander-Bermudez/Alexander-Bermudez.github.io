@@ -382,7 +382,8 @@ footer {
     .nav-links.show {
         transform: translateY(0); /* Move to original position */
         opacity: 1; /* Fade in */
-        height: auto; /* Set to auto for full height */
+        height: 128px; /* Set to auto for full height */
+        margin: 0;
     }
 
     .hamburger {
