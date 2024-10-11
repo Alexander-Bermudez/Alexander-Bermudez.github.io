@@ -376,6 +376,7 @@ footer {
     .nav-links.show {
         display: flex;
         margin-top: 0;
+        max-height: 300px; /* Adjust based on your menu items */
     }
 
     .hamburger {
