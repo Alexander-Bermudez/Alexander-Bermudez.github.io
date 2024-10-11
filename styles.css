@@ -137,7 +137,7 @@ nav ul li a {
 }
 
 .logo img {
-    height: 60px; /* Adjust the size as needed */
+    height: 60px;
 }
 
 .hero {
@@ -385,7 +385,7 @@ footer {
         display: none; /* Hide links by default */
         flex-direction: column; /* Stack links vertically */
         position: absolute;
-        top: 58px;
+        top: 62px;
         right: 0;
         background-color: white;
         width: 100%; /* Full width */
