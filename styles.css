@@ -302,24 +302,27 @@ footer {
 }
 
 .projects-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Always maintain 3 columns */
     gap: 40px;
     padding: 20px;
 }
 
+.projects-container::after {
+    content: '';
+    display: block;
+    background-color: transparent;
+}
+
 .project-card {
-    width: 25%; /* Default width for larger screens */
     background-color: #f0f0f0;
-    margin-bottom: 20px;
-    border-radius: 10px; /* Rounded corners for the card */
+    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden; /* Ensure content does not overflow the card */
+    overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
     display: flex;
-    flex-direction: column; /* Allow image and text to stack vertically */
+    flex-direction: column;
 }
 
 .project-card:hover {
@@ -407,7 +410,7 @@ footer {
     }
 
     .project-card {
-        width: 45%; /* Two cards per row on medium screens */
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -456,7 +459,7 @@ footer {
         padding-right: 0px;
     }
 
-    .project-card {
-        width: 100%; /* One card per row on small screens */
+    .projects-container {
+        grid-template-columns: 1fr; /* Display 1 column on mobile */
     }
 }
