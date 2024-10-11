@@ -362,7 +362,7 @@ footer {
 }
 
 /********************** Media Queries for Responsiveness on Mobile **********************/
-@media (max-width: 800px) {
+@media (max-width: 1024px) {
     .nav-links {
         display: none; /* Hide links by default */
         flex-direction: column; /* Stack links vertically */
@@ -480,7 +480,7 @@ footer {
 }
 
 /********************** Media Queries for Responsiveness on Desktop **********************/
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
     .projects-container {
         width: 90%; /* Increase the width and center it */
         max-width: 1200px; /* Limit maximum width */
