@@ -364,8 +364,7 @@ footer {
 /********************** Media Queries for Responsiveness on Mobile **********************/
 @media (max-width: 1025px) {
     .nav-links {
-        list-style: none;
-        display: flex;
+        display: none; /* Hide links by default */
         flex-direction: column; /* Stack links vertically */
         position: absolute;
         top: 60px; /* Adjust based on your navbar height */
@@ -373,9 +372,9 @@ footer {
         background-color: white;
         width: 100%; /* Full width */
         z-index: 1;
-        height: 0; /* Start hidden */
+        transition: max-height 0.5s ease; /* Smooth transition */
+        max-height: 0; /* Hidden by default */
         overflow: hidden; /* Prevent overflow when hidden */
-        transition: transform 0.5s ease, opacity 0.5s ease, height 0.5s ease;
     }
 
     .nav-links.show {
