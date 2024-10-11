@@ -51,7 +51,7 @@ function updateCircles() {
 }
 
 // Function to draw sine wave
-function drawSineWave(amplitude, frequency, phaseShift, verticalOffset, color, speed) {
+function drawSineWave(amplitude, frequency, phaseShift, verticalOffset, color) {
     const width = canvas.width;
     const height = canvas.height;
 
@@ -72,12 +72,15 @@ function drawSineWave(amplitude, frequency, phaseShift, verticalOffset, color, s
 let phaseShift1 = 0;
 let phaseShift2 = 0;
 let phaseShift3 = 0;
+let baseAmplitude1 = 50;
+let baseAmplitude2 = 30;
+let baseAmplitude3 = 70;
+
 let mouseX = 0;
 let mouseY = 0;
 
 // Mouse and touch movement listener for responsiveness
 function updateWaveParams(event) {
-    // Get mouse or touch position relative to canvas
     const canvasBounds = canvas.getBoundingClientRect();
     if (event.type === 'mousemove') {
         mouseX = event.clientX - canvasBounds.left;
@@ -86,24 +89,28 @@ function updateWaveParams(event) {
         mouseX = event.touches[0].clientX - canvasBounds.left;
         mouseY = event.touches[0].clientY - canvasBounds.top;
     }
-
-    // Map mouse/touch position to phase shift and amplitude
-    const width = canvas.width;
-    const height = canvas.height;
-    
-    // Adjust phase shifts and amplitudes based on input
-    phaseShift1 = (mouseX / width) * 2 * Math.PI;  // Horizontal mouse movement affects phase
-    phaseShift2 = (mouseY / height) * 2 * Math.PI; // Vertical movement affects phase
 }
 
 // Main animation loop
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Draw sine waves with interaction responsiveness
-    drawSineWave(50 + (mouseY / canvas.height) * 30, 0.02, phaseShift1, canvas.height * 0.5, 'rgba(139, 101, 0, 0.6)', 0.005);
-    drawSineWave(30 + (mouseX / canvas.width) * 30, 0.03, phaseShift2, canvas.height * 0.6, 'rgba(120, 85, 0, 0.6)', 0.005);
-    drawSineWave(70 + (mouseY / canvas.height) * 30, 0.015, phaseShift3, canvas.height * 0.4, 'rgba(160, 120, 0, 0.6)', 0.005);
+    const width = canvas.width;
+    const height = canvas.height;
+
+    // Adjustments based on mouse/touch input
+    const mouseFactorX = (mouseX / width) * 0.5;
+    const mouseFactorY = (mouseY / height) * 0.5;
+
+    // Draw sine waves with slight modifications based on input
+    drawSineWave(baseAmplitude1 + (mouseFactorY * 10), 0.02, phaseShift1, height * 0.5, 'rgba(139, 101, 0, 0.6)');
+    drawSineWave(baseAmplitude2 + (mouseFactorX * 10), 0.03, phaseShift2, height * 0.6, 'rgba(120, 85, 0, 0.6)');
+    drawSineWave(baseAmplitude3 + (mouseFactorY * 15), 0.015, phaseShift3, height * 0.4, 'rgba(160, 120, 0, 0.6)');
+
+    // Animate the phase shift for continuous movement
+    phaseShift1 += 0.002;
+    phaseShift2 += 0.001;
+    phaseShift3 += 0.0015;
 
     // Draw and update circles (golden stars)
     drawCircles();
@@ -113,7 +120,7 @@ function animate() {
 }
 
 // Initialize circles and start animation
-createCircles(100); // You can increase or decrease the number of circles
+createCircles(100);
 animate();
 
 // Add event listener for window resize
