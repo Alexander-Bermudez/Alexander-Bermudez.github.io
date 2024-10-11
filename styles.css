@@ -364,8 +364,6 @@ footer {
 /********************** Media Queries for Responsiveness on Mobile **********************/
 @media (max-width: 1025px) {
     .nav-links {
-        display: flex; /* Default display */
-        flex-direction: column; /* Stack links vertically */
         position: absolute;
         top: 60px; /* Adjust based on your navbar height */
         right: 0;
@@ -374,12 +372,15 @@ footer {
         z-index: 1;
         transform: translateY(-20px); /* Start slightly above */
         opacity: 0; /* Start as invisible */
-        transition: transform 0.5s ease, opacity 0.5s ease; /* Smooth transition */
+        height: 0; /* Start with height 0 */
+        overflow: hidden; /* Hide overflow */
+        transition: transform 0.5s ease, opacity 0.5s ease, height 0.5s ease; /* Smooth transition */
     }
 
     .nav-links.show {
         transform: translateY(0); /* Move to original position */
         opacity: 1; /* Fade in */
+        height: auto; /* Set to auto for full height */
     }
 
     .hamburger {
