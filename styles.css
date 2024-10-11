@@ -410,6 +410,11 @@ footer {
         flex-direction: column-reverse;
     }
 
+    .image-container img {
+        max-width: 50%;
+        height: auto;
+    }
+
     .projects-container {
         grid-template-columns: repeat(2, 1fr);
     }
