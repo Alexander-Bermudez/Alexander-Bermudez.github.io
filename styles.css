@@ -390,7 +390,7 @@ footer {
     }
 
     .hero {
-        min-height: 100vh; /* 50% of the viewport height */
+        min-height: 100vh; /* 100% of the viewport height */
         padding:5rem 1rem;
         text-align: center;
     }
@@ -432,7 +432,7 @@ footer {
 
 @media (max-width: 480px) {
     .hero {
-        min-height: 50vh; /* 50% of the viewport height */
+        min-height: 60vh; /* 50% of the viewport height */
         padding:5rem 0rem;
         text-align: center;
     }
