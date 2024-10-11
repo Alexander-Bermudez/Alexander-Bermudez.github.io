@@ -373,11 +373,14 @@ footer {
     }
 
     .nav-links.show {
-        display: flex; /* Show links when class is added */
+        display: flex;
+        margin-top: 0;
     }
 
     .hamburger {
-        display: block; /* Show hamburger icon on smaller screens */
+        display: flex;
+        margin-right: 2rem;
+        flex-direction: row-reverse;
     }
 
     .hero {
