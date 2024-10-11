@@ -397,7 +397,17 @@ footer {
 
     .typing-effect{
         font-size: 32px;
-        white-space: normal; /* Allow wrapping */
+        color: #FFA000;
+        animation: none; /* Disable typewriter effect */
+        border: none; /* Remove the cursor */
+        opacity: 0; /* Initially hidden */
+        transform: translateY(30px); /* Start below screen */
+        transition: opacity 1s ease-out, transform 1s ease-out; /* Fade-up effect */
+    }
+
+    .typing-effect.fade-up {
+        opacity: 1;
+        transform: translateY(0); /* Final position on screen */
     }
 
     .text-container{
