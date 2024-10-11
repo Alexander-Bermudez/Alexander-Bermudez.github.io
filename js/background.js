@@ -51,8 +51,8 @@ function updateCircles() {
     });
 }
 
-// Add the sine wave animation from previous code
-function drawSineWave(amplitude, frequency, phaseShift, verticalOffset, color, speed) {
+// Function to add slight variation to amplitude and frequency over time
+function drawDynamicSineWave(amplitude, frequency, phaseShift, verticalOffset, color, speed, time) {
     const width = canvas.width;
     const height = canvas.height;
 
@@ -62,7 +62,10 @@ function drawSineWave(amplitude, frequency, phaseShift, verticalOffset, color, s
     ctx.lineWidth = 2;
 
     for (let x = 0; x < width; x++) {
-        const y = amplitude * Math.sin((x * frequency) + phaseShift) + verticalOffset;
+        // Dynamic amplitude and frequency variation
+        const dynamicAmplitude = amplitude + Math.sin(time * 0.5) * 10;  // Amplitude varies over time
+        const dynamicFrequency = frequency + Math.sin(time * 0.3) * 0.005;  // Frequency varies over time
+        const y = dynamicAmplitude * Math.sin((x * dynamicFrequency) + phaseShift) + verticalOffset;
         ctx.lineTo(x, y);
     }
 
@@ -73,15 +76,16 @@ function drawSineWave(amplitude, frequency, phaseShift, verticalOffset, color, s
 let phaseShift1 = 0;
 let phaseShift2 = 0;
 let phaseShift3 = 0;
+let time = 0;
 
 // Main animation loop to animate both sine waves and circles
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Draw sine waves with darker gold
-    drawSineWave(50, 0.02, phaseShift1, canvas.height * 0.5, 'rgba(139, 101, 0, 0.6)', 0.005);
-    drawSineWave(30, 0.03, phaseShift2, canvas.height * 0.6, 'rgba(120, 85, 0, 0.6)', 0.005);
-    drawSineWave(70, 0.015, phaseShift3, canvas.height * 0.4, 'rgba(160, 120, 0, 0.6)', 0.005);
+    // Draw sine waves with dynamic amplitude and frequency
+    drawDynamicSineWave(50, 0.02, phaseShift1, canvas.height * 0.5, 'rgba(139, 101, 0, 0.6)', 0.005, time);
+    drawDynamicSineWave(30, 0.03, phaseShift2, canvas.height * 0.6, 'rgba(120, 85, 0, 0.6)', 0.005, time);
+    drawDynamicSineWave(70, 0.015, phaseShift3, canvas.height * 0.4, 'rgba(160, 120, 0, 0.6)', 0.005, time);
 
     // Animate the phase shift for the sine waves
     phaseShift1 += 0.002;
@@ -91,6 +95,9 @@ function animate() {
     // Draw and update circles (golden stars)
     drawCircles();
     updateCircles();
+
+    // Update time for dynamic behavior
+    time += 0.01;
 
     requestAnimationFrame(animate);
 }
