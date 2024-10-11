@@ -364,6 +364,8 @@ footer {
 /********************** Media Queries for Responsiveness on Mobile **********************/
 @media (max-width: 1025px) {
     .nav-links {
+        display: flex; /* Keep display flex for stacking */
+        flex-direction: column; /* Stack links vertically */
         position: absolute;
         top: 60px; /* Adjust based on your navbar height */
         right: 0;
