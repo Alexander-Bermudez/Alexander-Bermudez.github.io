@@ -51,8 +51,8 @@ function updateCircles() {
     });
 }
 
-// Function to draw a sine wave where amplitude slowly increases and decreases
-function drawDynamicAmplitudeSineWave(amplitude, frequency, phaseShift, verticalOffset, color, speed, time) {
+// Function to draw a sine wave with dynamic amplitude
+function drawDynamicAmplitudeSineWave(amplitude, frequency, phaseShift, verticalOffset, color, speed, time, timeFactor) {
     const width = canvas.width;
     const height = canvas.height;
 
@@ -62,8 +62,8 @@ function drawDynamicAmplitudeSineWave(amplitude, frequency, phaseShift, vertical
     ctx.lineWidth = 2;
 
     for (let x = 0; x < width; x++) {
-        // Slowly change the amplitude over time
-        const dynamicAmplitude = amplitude + Math.sin(time * 0.3) * amplitude * 0.3; // Amplitude changes slowly over time
+        // Dynamic amplitude changes based on timeFactor for each wave
+        const dynamicAmplitude = amplitude + Math.sin(time * timeFactor) * amplitude * 0.3;
         const y = dynamicAmplitude * Math.sin((x * frequency) + phaseShift) + verticalOffset;
         ctx.lineTo(x, y);
     }
@@ -81,10 +81,10 @@ let time = 0;
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Draw sine waves with dynamic amplitude change over time
-    drawDynamicAmplitudeSineWave(50, 0.02, phaseShift1, canvas.height * 0.5, 'rgba(139, 101, 0, 0.6)', 0.005, time);
-    drawDynamicAmplitudeSineWave(30, 0.03, phaseShift2, canvas.height * 0.6, 'rgba(120, 85, 0, 0.6)', 0.005, time);
-    drawDynamicAmplitudeSineWave(70, 0.015, phaseShift3, canvas.height * 0.4, 'rgba(160, 120, 0, 0.6)', 0.005, time);
+    // Draw sine waves with different amplitude breathing patterns
+    drawDynamicAmplitudeSineWave(50, 0.02, phaseShift1, canvas.height * 0.5, 'rgba(139, 101, 0, 0.6)', 0.005, time, 0.15); // Slower breathing
+    drawDynamicAmplitudeSineWave(30, 0.03, phaseShift2, canvas.height * 0.6, 'rgba(120, 85, 0, 0.6)', 0.005, time, 0.1);  // Slightly faster breathing
+    drawDynamicAmplitudeSineWave(70, 0.015, phaseShift3, canvas.height * 0.4, 'rgba(160, 120, 0, 0.6)', 0.005, time, 0.2); // Moderate breathing
 
     // Animate the phase shift for the sine waves
     phaseShift1 += 0.002;
