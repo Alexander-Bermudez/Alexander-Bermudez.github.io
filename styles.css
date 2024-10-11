@@ -87,6 +87,9 @@ header {
     color: black;
     padding: 10px 0;
     text-align: center;
+    display: flex; /* Enable flexbox layout */
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space out children */
 }
 
 .hamburger {
@@ -105,8 +108,8 @@ header {
 .nav-links {
     list-style: none;
     display: flex;
-    align-items: center; /* Center the logo vertically */
-    margin-left: 20px; /* Space from the left */
+    justify-content: center; /* Center the links */
+    flex-grow: 1; /* Allow it to take remaining space */
 }
 
 .nav-links li {
