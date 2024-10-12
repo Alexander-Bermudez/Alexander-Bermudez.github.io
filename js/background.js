@@ -15,14 +15,15 @@ let circles = [];
 
 // Function to create small golden circles
 function createCircles(count) {
+    circles = []; // Clear the previous circles
     for (let i = 0; i < count; i++) {
         circles.push({
-            x: Math.random() * canvas.width,  // Random initial x-position
-            y: Math.random() * canvas.height, // Random initial y-position
-            radius: Math.random() * 2 + 1,    // Small radius between 1 and 3
-            color: `rgba(218,165,32,${Math.random() * 0.4 + 0.1})`, // Golden color with random lower opacity (between 0.1 and 0.5)
-            dx: (Math.random() - 0.5) * 0.1,  // **Slower horizontal movement speed**
-            dy: (Math.random() - 0.5) * 0.1   // **Slower vertical movement speed**
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            radius: Math.random() * 2 + 1,
+            color: `rgba(218,165,32,${Math.random() * 0.4 + 0.1})`,
+            dx: (Math.random() - 0.5) * 0.1,
+            dy: (Math.random() - 0.5) * 0.1
         });
     }
 }
@@ -62,7 +63,6 @@ function drawDynamicAmplitudeSineWave(amplitude, frequency, phaseShift, vertical
     ctx.lineWidth = 2;
 
     for (let x = 0; x < width; x++) {
-        // Dynamic amplitude changes based on timeFactor for each wave
         const dynamicAmplitude = amplitude + Math.sin(time * timeFactor) * amplitude * 0.3;
         const y = dynamicAmplitude * Math.sin((x * frequency) + phaseShift) + verticalOffset;
         ctx.lineTo(x, y);
@@ -81,21 +81,17 @@ let time = 0;
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Draw sine waves with different amplitude breathing patterns
-    drawDynamicAmplitudeSineWave(50, 0.02, phaseShift1, canvas.height * 0.5, 'rgba(139, 101, 0, 0.6)', 0.005, time, 0.15); // Slower breathing
-    drawDynamicAmplitudeSineWave(30, 0.03, phaseShift2, canvas.height * 0.6, 'rgba(120, 85, 0, 0.6)', 0.005, time, 0.1);  // Slightly faster breathing
-    drawDynamicAmplitudeSineWave(70, 0.015, phaseShift3, canvas.height * 0.4, 'rgba(160, 120, 0, 0.6)', 0.005, time, 0.2); // Moderate breathing
+    drawDynamicAmplitudeSineWave(50, 0.02, phaseShift1, canvas.height * 0.5, 'rgba(139, 101, 0, 0.6)', 0.005, time, 0.15);
+    drawDynamicAmplitudeSineWave(30, 0.03, phaseShift2, canvas.height * 0.6, 'rgba(120, 85, 0, 0.6)', 0.005, time, 0.1);
+    drawDynamicAmplitudeSineWave(70, 0.015, phaseShift3, canvas.height * 0.4, 'rgba(160, 120, 0, 0.6)', 0.005, time, 0.2);
 
-    // Animate the phase shift for the sine waves
     phaseShift1 += 0.002;
     phaseShift2 += 0.001;
     phaseShift3 += 0.0015;
 
-    // Draw and update circles (golden stars)
     drawCircles();
     updateCircles();
 
-    // Update time for dynamic amplitude behavior
     time += 0.01;
 
     requestAnimationFrame(animate);
@@ -108,7 +104,5 @@ animate();
 // Add event listener for window resize
 window.addEventListener('resize', () => {
     setCanvasSize(); // Resize the canvas
-    // Optionally, you can recreate circles to adapt to the new size
-    // circles = []; // Clear the circles array
-    // createCircles(100); // Recreate circles based on the new size
+    createCircles(100); // Recreate circles based on the new size
 });
