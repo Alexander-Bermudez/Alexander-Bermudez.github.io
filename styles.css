@@ -386,7 +386,7 @@ footer {
         display: none; /* Hide links by default */
         flex-direction: column; /* Stack links vertically */
         position: absolute;
-        top: 59px;
+        top: 55px;
         right: 0;
         background-color: white;
         width: 100%; /* Full width */
