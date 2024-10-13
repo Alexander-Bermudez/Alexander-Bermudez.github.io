@@ -369,6 +369,10 @@ footer {
                 0 0 40px rgba(255, 255, 255, 0.8); /* More intense outer glow */
 }
 
+.project-card h3{
+    text-align: center;
+}
+
 .project-image {
     width: 100%; /* Make image responsive to card width */
     height: auto; /* Maintain aspect ratio */
