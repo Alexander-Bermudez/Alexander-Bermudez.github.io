@@ -212,17 +212,35 @@ footer {
     margin: 2rem 6rem;
 }
 
+.skills-container {
+    display: flex; /* Enable flexbox layout */
+    flex-wrap: wrap; /* Allow items to wrap onto the next line if necessary */
+    justify-content: flex-start; /* Align items to the start */
+    padding: 10px; /* Add padding inside the container */
+    margin: 0 auto; /* Center the container horizontally */
+    max-width: 100%; /* Ensure the container is responsive */
+    border: 2px solid #FFA000; /* Add border to make the container look like a text box */
+    border-radius: 8px; /* Rounded corners for the container */
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
 .skills-list {
-    list-style-type: none; /* Remove default bullets */
+    list-style-type: none; /* Remove default list styling */
     padding: 0; /* Remove default padding */
     margin: 0; /* Remove default margin */
-    column-count: 2; /* Set number of columns */
-    column-gap: 20px; /* Space between columns */
+    display: flex; /* Apply flexbox to the list */
+    flex-wrap: wrap; /* Ensure skills wrap to the next line */
+    gap: 10px; /* Create space between skill items */
 }
 
 .skills-list li {
-    break-inside: avoid; /* Prevent breaking items between columns */
-    margin-bottom: 10px; /* Space between items */
+    padding: 10px 20px; /* Add padding for button-like appearance */
+    border: 2px solid #FFA000; /* Golden border */
+    border-radius: 5px; /* Slightly rounded corners */
+    background-color: transparent; /* Transparent background */
+    color: #ffffff; /* White text */
+    font-size: 16px; /* Font size */
+    box-sizing: border-box; /* Make padding and border count towards the total size */
 }
 
 .typing-effect {
