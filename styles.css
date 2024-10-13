@@ -219,7 +219,6 @@ footer {
     padding: 10px; /* Add padding inside the container */
     margin: 0 auto; /* Center the container horizontally */
     max-width: 100%; /* Ensure the container is responsive */
-    border: 2px solid #FFA000; /* Add border to make the container look like a text box */
     border-radius: 8px; /* Rounded corners for the container */
     box-sizing: border-box; /* Ensure padding doesn't affect width */
 }
