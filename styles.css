@@ -229,13 +229,13 @@ footer {
     margin: 0; /* Remove default margin */
     display: flex; /* Apply flexbox to the list */
     flex-wrap: wrap; /* Ensure skills wrap to the next line */
-    gap: 10px; /* Create space between skill items */
+    gap: 15px; /* Create space between skill items */
 }
 
 .skills-list li {
     padding: 10px 20px; /* Add padding for button-like appearance */
     border: 2px solid #FFA000; /* Golden border */
-    border-radius: 5px; /* Slightly rounded corners */
+    border-radius: 10px; /* Rounded corners */
     background-color: transparent; /* Transparent background */
     color: #ffffff; /* White text */
     font-size: 16px; /* Font size */
