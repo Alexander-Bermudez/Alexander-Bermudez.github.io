@@ -277,6 +277,7 @@ footer {
 .image-container img {
     max-width: 100%; /* Ensure the image is responsive */
     height: auto; /* Maintain the aspect ratio */
+    border-radius: 10px;
 }
 
 .cta-buttons {
@@ -446,7 +447,6 @@ footer {
     .image-container img {
         max-width: 50%;
         height: auto;
-        border-radius: 10px;
     }
 
     .projects-container {
