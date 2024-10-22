@@ -403,6 +403,11 @@ footer {
     color: black;
 }
 
+.project-title-container{
+    display: flex;
+    justify-content: center;
+}
+
 .project-title {
     position: relative;
     display: inline-block; /* Ensure the element is inline to center the underline */
