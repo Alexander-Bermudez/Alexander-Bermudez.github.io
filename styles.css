@@ -403,6 +403,21 @@ footer {
     color: black;
 }
 
+.project-title{
+    position: relative;
+}
+
+.project-title:after {
+    content: ''; /* Create an empty pseudo-element */
+    position: absolute; /* Position it absolutely */
+    width: 0; /* Start with no width */
+    height: 2px; /* Set the height of the underline */
+    background-color: #FFA000; /* Underline color */
+    bottom: 0; /* Position it at the bottom of the link */
+    left: 50%; /* Center it horizontally */
+    transition: width 0.3s ease, left 0.3s ease; /* Animate width and left position */
+}
+
 /********************** Media Queries for Responsiveness on Mobile **********************/
 @media (max-width: 1025px) {
     .nav-links {
