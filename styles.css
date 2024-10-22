@@ -405,7 +405,7 @@ footer {
 
 .project-title {
     position: relative;
-    display: inline-block;
+    display: inline-block; /* Ensure the element is inline to center the underline */
 }
 
 .project-title::before {
@@ -419,7 +419,7 @@ footer {
     transition: width 0.3s ease, left 0.3s ease; /* Animate width and left position */
 }
 
-.project-title:hover::before {
+.project-card:hover .project-title::before {
     width: 100%; /* Expand the width to cover the whole text */
     left: 0; /* Move the left position to the start of the text */
 }
