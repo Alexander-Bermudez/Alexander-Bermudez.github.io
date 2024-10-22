@@ -406,8 +406,7 @@ footer {
 .project-title {
     position: relative;
     display: inline-block; /* Ensure the element is inline to center the underline */
-    text-align: center;
-    width: 100%;
+    margin: 0;
 }
 
 .project-title::before {
@@ -415,7 +414,7 @@ footer {
     position: absolute;
     width: 0; /* Start with no width */
     height: 2px; /* Set the height of the underline */
-    background-color: black; /* Underline color */
+    background-color: #FFA000; /* Underline color */
     bottom: 0; /* Position it at the bottom of the text */
     left: 50%; /* Start at the center */
     transition: width 0.3s ease, left 0.3s ease; /* Animate width and left position */
