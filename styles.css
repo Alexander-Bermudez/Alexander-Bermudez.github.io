@@ -403,19 +403,25 @@ footer {
     color: black;
 }
 
-.project-title{
+.project-title {
     position: relative;
+    display: inline-block;
 }
 
-.project-title:after {
-    content: ''; /* Create an empty pseudo-element */
-    position: absolute; /* Position it absolutely */
+.project-title::before {
+    content: '';
+    position: absolute;
     width: 0; /* Start with no width */
     height: 2px; /* Set the height of the underline */
     background-color: #FFA000; /* Underline color */
-    bottom: 0; /* Position it at the bottom of the link */
-    left: 50%; /* Center it horizontally */
+    bottom: 0; /* Position it at the bottom of the text */
+    left: 50%; /* Start at the center */
     transition: width 0.3s ease, left 0.3s ease; /* Animate width and left position */
+}
+
+.project-title:hover::before {
+    width: 100%; /* Expand the width to cover the whole text */
+    left: 0; /* Move the left position to the start of the text */
 }
 
 /********************** Media Queries for Responsiveness on Mobile **********************/
