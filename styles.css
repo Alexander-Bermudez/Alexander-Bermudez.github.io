@@ -340,6 +340,33 @@ footer {
     font-weight: bold;
 }
 
+.contact-title-container{
+    display: flex;
+    justify-content: center;
+}
+
+.contact-title {
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.contact-title::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    bottom: 0;
+    left: 50%;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.cta-button:hover .contact-title::before {
+    width: 100%;
+    left: 0;
+}
+
 .projects-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Always maintain 3 columns */
