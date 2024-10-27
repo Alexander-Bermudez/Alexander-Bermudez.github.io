@@ -77,6 +77,7 @@ let phaseShift1 = 0;
 let phaseShift2 = 0;
 let phaseShift3 = 0;
 let time = 0;
+let animationFrameId; // Variable to store the animation frame ID
 
 // Main animation loop to animate both sine waves and circles
 function animate() {
@@ -99,12 +100,27 @@ function animate() {
     // Update time for dynamic amplitude behavior
     time += 0.01;
 
-    requestAnimationFrame(animate);
+    animationFrameId = requestAnimationFrame(animate);
+}
+
+// Function to start the animation
+function startAnimation() {
+    if (!animationFrameId) {
+        animationFrameId = requestAnimationFrame(animate);
+    }
+}
+
+// Function to stop the animation
+function stopAnimation() {
+    if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+        animationFrameId = null;
+    }
 }
 
 // Initialize circles and start animation
 createCircles(100); // You can increase or decrease the number of circles
-animate();
+startAnimation(); // Start animation initially
 
 // Add event listener for window resize
 window.addEventListener('resize', () => {
@@ -127,11 +143,12 @@ toggleButton.addEventListener('click', (e) => {
     // Toggle canvas display
     if (isPaused) {
         canvas.style.display = 'block'; // Show canvas
-        requestAnimationFrame(animate); // Restart animation
+        startAnimation(); // Start animation
         playIcon.style.display = 'none'; // Hide play icon
         pauseIcon.style.display = 'block'; // Show pause icon
     } else {
         canvas.style.display = 'none'; // Hide canvas
+        stopAnimation(); // Stop animation
         playIcon.style.display = 'block'; // Show play icon
         pauseIcon.style.display = 'none'; // Hide pause icon
     }
