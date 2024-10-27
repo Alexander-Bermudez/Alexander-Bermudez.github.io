@@ -143,8 +143,6 @@ nav ul li a {
 }
 
 #toggleButton {
-    display: flex;
-    justify-content: flex-end;
     position: relative;
     right: 2rem;
     top: 2rem;
