@@ -111,3 +111,31 @@ window.addEventListener('resize', () => {
     setCanvasSize(); // Resize the canvas
     createCircles(100); // Recreate circles based on the new size
 });
+
+// Reference the toggle button and SVG icons
+const toggleButton = document.getElementById('toggleButton');
+const pauseIcon = document.getElementById('pauseIcon');
+const playIcon = document.getElementById('playIcon');
+
+// Add a variable to keep track of the canvas display status
+let isPaused = false;
+
+// Event listener for button click
+toggleButton.addEventListener('click', (e) => {
+    e.preventDefault(); // Prevent default action of <a> tag
+
+    // Toggle canvas display
+    if (isPaused) {
+        canvas.style.display = 'block'; // Show canvas
+        requestAnimationFrame(animate); // Restart animation
+        playIcon.style.display = 'none'; // Hide play icon
+        pauseIcon.style.display = 'block'; // Show pause icon
+    } else {
+        canvas.style.display = 'none'; // Hide canvas
+        playIcon.style.display = 'block'; // Show play icon
+        pauseIcon.style.display = 'none'; // Hide pause icon
+    }
+
+    // Toggle paused state
+    isPaused = !isPaused;
+});
