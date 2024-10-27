@@ -143,11 +143,15 @@ nav ul li a {
 }
 
 #toggleButton {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 10;
-    cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    right: 2rem;
+    top: 2rem;
+}
+
+#playIcon, #pauseIcon {
+    filter: brightness(0) invert(1);
 }
 
 .hero {
